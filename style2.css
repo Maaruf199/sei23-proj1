@@ -1,0 +1,176 @@
+* {
+    box-sizing: border-box;
+}
+
+html {
+    min-height: 100vh;
+}
+
+body {
+    margin: 0;
+    background: radial-gradient(rgb(52, 52, 136), rgb(17, 17, 134));
+}
+
+.page-title {
+    color: chartreuse;
+    font-family: fantasy;
+    font-weight: normal;
+    text-align: center;
+    font-size: 75px;
+}
+
+.game-info-container {
+    grid-column: 1 / -1;
+    display: flex;
+    justify-content: space-between;
+}
+
+.game-info {
+    font-family: cursive;
+    color: rgb(73, 192, 146);
+    font-size: 45px;
+}
+
+.game-container {
+    display: grid;
+    grid-template-columns: repeat(4, auto);
+    grid-gap: 10px;
+    margin: 50px;
+    justify-content: center;
+    perspective: 500px;
+}
+
+
+.card {
+    position: relative;
+    background-color: black;
+    height: 125px;
+    width: 165px;
+
+}
+
+.card:hover {
+    cursor: auto;
+  }
+
+.card-face {
+    position: absolute; 
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: transform 500ms ease-in-out;
+    backface-visibility: hidden;
+    border-width: 1px;
+    border-style: solid;
+}
+
+.card.visible .card-back {
+    transform: rotateY(-180deg);
+  }
+
+.card.visible .card-front {
+    transform: rotateY(0);
+  }  
+
+.card.matched .card-value {
+    animation: dance 1s linear infinite 500ms;
+  } 
+
+.card-value {
+    height: 125px;
+    width: 165px;
+    position: absolute;
+    transition: width 100ms ease-in-out, height 100ms ease-in-out;
+}
+
+.overlay-text {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    justify-content: center;
+    align-items: center;
+    z-index: 100;
+    color: #ffd900;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  }
+  
+  .overlay-text-small {
+    font-size: .3em;
+  }
+  
+  .overlay-text.visible {
+    display: flex;
+    flex-direction: column;
+    animation: overlay-grow 500ms forwards;
+  }
+
+  @keyframes overlay-grow {
+    from {
+      background-color: rgba(0, 0, 0, 0);
+      font-size: 0;
+    }
+    to {
+      background-color: rgba(0, 0, 0, .8);
+      font-size: 10em;
+    }
+  }
+  
+  @keyframes dance {
+    0%, 100%  {
+      transform: rotate(0);
+    }
+    25% {
+      transform: rotate(-10deg);
+    }
+    75% {
+      transform: rotate(10deg);
+    }
+  }
+
+  .card-back {
+    background-color: black;
+    border-color: blue;
+  }
+  
+  .card-front {
+    background-color: grey;
+    border-color: #333;
+    transform: rotateY(180deg); 
+  }
+
+  #container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+  }
+  
+  #button {
+    color: blue;
+    font-size: 30px;
+    border-style: solid;
+    border-color: black;
+    text-decoration: none;
+  }
+  
+ 
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
