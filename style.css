@@ -62,6 +62,8 @@ body {
     align-items: center;
     transition: transform 500ms ease-in-out;
     backface-visibility: hidden;
+    border-width: 1px;
+    border-style: solid;
 }
 
 .card.visible .card-back {
@@ -123,16 +125,16 @@ body {
       transform: rotate(0);
     }
     25% {
-      transform: rotate(-30deg);
+      transform: rotate(-10deg);
     }
     75% {
-      transform: rotate(30deg);
+      transform: rotate(10deg);
     }
   }
 
   .card-back {
     background-color: black;
-    border-color: #FF6D00;
+    border-color: blue;
   }
   
   .card-front {
@@ -141,7 +143,20 @@ body {
     transform: rotateY(180deg); 
   }
 
- 
+  #container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+  }
+  
+  #button {
+    color: blue;
+    font-size: 30px;
+    border-style: solid;
+    border-color: black;
+    text-decoration: none;
+  }
   
  
   
