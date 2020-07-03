@@ -49,10 +49,6 @@ body {
 
 }
 
-.card:hover {
-    cursor: auto;
-  }
-
 .card-face {
     position: absolute; 
     width: 100%;
