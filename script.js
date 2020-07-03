@@ -3,14 +3,18 @@ class AudioController {
         this.bgMusic = new Audio('../Project1/Audio/bg.mp3');
         this.flipSound = new Audio('../Project1/Audio/flip.mp3');
         this.matchSound = new Audio('https://www.noiseforfun.com/waves/interface-and-media/NFF-notify.wav');
-        this.victorySound = new Audio('https://www.noiseforfun.com/waves/musical-and-jingles/NFF-bravo.wav');
+        this.winSound = new Audio('https://www.noiseforfun.com/waves/musical-and-jingles/NFF-bravo.wav');
         this.gameOverSound = new Audio('https://www.noiseforfun.com/waves/voice-and-speech/NFF-evil-laugh.wav');
-        this.bgMusic.volume = 0.5;
+        this.bgMusic.volume = 0.1;
+        this.flipSound.volume = 0.3;
+        this.matchSound.volume = 0.3; 
+        this.winSound.volume = 0.3;
+        this.gameOverSound.volume = 0.3;
         this.bgMusic.loop = true;
     }
     startMusic() {
         this.bgMusic.play();
-    }s
+    }
     stopMusic() {
         this.bgMusic.pause();
         this.bgMusic.currentTime = 0;
@@ -21,9 +25,9 @@ class AudioController {
     match() {
         this.matchSound.play();
     }
-    victory() {
+    win() {
         this.stopMusic();
-        this.victorySound.play();
+        this.winSound.play();
     }
     gameOver() {
         this.stopMusic();
@@ -70,10 +74,10 @@ class MixOrMatch {
         this.audioController.gameOver();
         document.getElementById('game-over-text').classList.add('visible');
     }
-    victory() {
+    win() {
         clearInterval(this.countdown);
-        this.audioController.victory();
-        document.getElementById('victory-text').classList.add('visible');
+        this.audioController.win();
+        document.getElementById('win-text').classList.add('visible');
     }
     hideCards() {
         this.cardsArray.forEach(card => {
@@ -110,7 +114,7 @@ class MixOrMatch {
         card2.classList.add('matched');
         this.audioController.match();
         if(this.matchedCards.length === this.cardsArray.length)
-            this.victory();
+            this.win();
     }
     cardMismatch(card1, card2) {
         this.busy = true;
@@ -137,12 +141,6 @@ class MixOrMatch {
     }
 }
 
-if (document.readyState == 'loading') {
-    document.addEventListener('DOMContentLoaded', ready)
-} else {
-    ready()
-}
-
 function ready() {
     let overlays = Array.from(document.getElementsByClassName('overlay-text'));
     let cards = Array.from(document.getElementsByClassName('card'));
@@ -162,4 +160,4 @@ function ready() {
     });
 }
 
-console.log(ready);
+ready();
