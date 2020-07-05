@@ -1,10 +1,10 @@
 class AudioController {
     constructor() {
-        this.bgMusic = new Audio('../Project1/Audio/bg.mp3');
-        this.flipSound = new Audio('../Project1/Audio/flip.mp3');
-        this.matchSound = new Audio('https://www.noiseforfun.com/waves/interface-and-media/NFF-notify.wav');
-        this.winSound = new Audio('https://www.noiseforfun.com/waves/musical-and-jingles/NFF-bravo.wav');
-        this.gameOverSound = new Audio('https://www.noiseforfun.com/waves/voice-and-speech/NFF-evil-laugh.wav');
+        this.bgMusic = new Audio("bg.mp3");
+        this.flipSound = new Audio("flip.mp3");
+        this.matchSound = new Audio("https://www.noiseforfun.com/waves/interface-and-media/NFF-notify.wav");
+        this.winSound = new Audio("https://www.noiseforfun.com/waves/musical-and-jingles/NFF-bravo.wav");
+        this.gameOverSound = new Audio("https://www.noiseforfun.com/waves/voice-and-speech/NFF-evil-laugh.wav");
         this.bgMusic.volume = 0.1;
         this.flipSound.volume = 0.3;
         this.matchSound.volume = 0.3; 
